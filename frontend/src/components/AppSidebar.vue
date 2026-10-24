@@ -156,7 +156,7 @@ const handleDeleteTask = async (event, task) => {
                 <img src="/src/assets/logo.png" alt="Logo" class="app-logo-img" />
             </div>
             <div class="app-title">
-                <h3>AI-Media2Doc</h3>
+                <h3>音视频转图文</h3>
                 <div class="app-subtitle">一键音视频转文档</div>
             </div>
         </div>

@@ -2,7 +2,7 @@
   "id": "o20",
   "slug": "media-to-article",
   "name": "音视频转图文",
-  "version": "0.8.0-campfire.1",
+  "version": "0.8.0-campfire.2",
   "repo": "campfire-code/media-to-article",
   "license": "MIT",
   "delivery": "docker",

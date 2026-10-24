@@ -2,7 +2,9 @@
 
 > 篝火出品 · 收录于篝火 App 应用区 · 基于开源项目 [hanshuaikang/AI-Media2Doc](https://github.com/hanshuaikang/AI-Media2Doc)（MIT）
 
-把录屏、课程、访谈等视频或音频，一键转成小红书 / 公众号 / 知识笔记 / 思维导图 / 内容总结等风格的图文文档，还能导出字幕、针对内容继续问答、按字幕智能截图插入文章。在自己的电脑或服务器上用 Docker 部署，网页操作，界面是中文。
+把录屏、课程、访谈等视频或音频，一键转成小红书 / 公众号 / 知识笔记 / 思维导图 / 内容总结等风格的图文文档，还能导出字幕、针对内容继续问答、按字幕智能截图插入文章。在自己的电脑或服务器上用 Docker 部署，网页操作，界面本来就是中文，不需要切换语言。
+
+<p align="center"><img src="docs/screenshot.png" alt="音视频转图文首页：选择文档风格，上传视频或 MP3 音频" width="80%"></p>
 
 ## 先看清楚：需要准备哪些账号（缺一不可）
 
@@ -34,7 +36,7 @@ docker compose up -d
 
 ## 怎么用
 
-1. 打开网页，选一个视频或音频文件，选择想要的文档风格。
+1. 打开网页，界面是中文的。先在上方选一种文档风格（知识笔记、小红书、公众号、内容总结、思维导图、字幕文件），再把视频或 MP3 音频拖进虚线框，或点「开始上传」选文件。
 2. 等待上传、识别、生成；完成后可以查看图文、导出字幕、继续向 AI 提问。
 3. "自定义设置"里可以开启智能截图、修改提示词、填写访问密码。
 
@@ -51,6 +53,7 @@ docker compose up -d
 
 - 把前后端合并成一个镜像（`docker/Dockerfile.campfire`）：前端构建为静态文件，由后端同端口提供，并带上 ffmpeg wasm 所需的跨源隔离响应头（`backend/app.py`）。
 - 大模型接口默认地址由上游的火山方舟改为通用的 `https://api.openai.com/v1`（`backend/env.py`、`variables_template.env`），模型名需要自己填。
+- 侧栏标题由英文名改为「音视频转图文」，上传区标题中的「Mp3」统一写成「MP3」（`frontend/src/components/AppSidebar.vue`、`UploadSection.vue`）。
 - 前端接口地址配置改为"空字符串表示同源"（`frontend/src/config.js`）。
 - 新增 `campfire/` 部署文件、`tool.json`、篝火发布流程；删除上游的 Docker Hub 发布工作流。
 

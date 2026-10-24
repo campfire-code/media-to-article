@@ -15,7 +15,7 @@ const props = defineProps({
   },
   acceptHint: {
     type: String,
-    default: '上传视频或Mp3音频'
+    default: '上传视频或 MP3 音频'
   },
   file: Object,
   fileName: String,
