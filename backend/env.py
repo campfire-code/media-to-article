@@ -2,7 +2,7 @@
 
 import os
 
-LLM_BASE_URL = os.getenv("LLM_BASE_URL", "https://ark.cn-beijing.volces.com/api/v3")
+LLM_BASE_URL = os.getenv("LLM_BASE_URL", "https://api.openai.com/v1")
 LLM_MODEL_ID = os.getenv("MODEL_ID")
 LLM_API_KEY = os.getenv("ARK_API_KEY") or os.getenv("LLM_API_KEY")
 STORAGE_ACCESS_KEY = os.getenv("TOS_ACCESS_KEY") or os.getenv("STORAGE_ACCESS_KEY")

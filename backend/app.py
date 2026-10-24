@@ -2,8 +2,12 @@
 
 from fastapi import FastAPI, HTTPException, Header, Depends
 from fastapi.middleware.cors import CORSMiddleware
+import os
 import time
+from pathlib import Path
 from typing import Optional
+
+from fastapi.staticfiles import StaticFiles
 
 import env
 from config.log import setup_logging, get_logger
@@ -83,6 +87,23 @@ async def health_check():
         data={"status": "healthy", "timestamp": int(time.time())},
         message="Service is healthy",
     )
+
+
+# 篝火：Docker 镜像里把构建好的前端放在 STATIC_DIR，由后端同端口提供。
+# ffmpeg wasm 需要 SharedArrayBuffer，因此页面要带跨源隔离响应头。
+STATIC_DIR = Path(os.getenv("STATIC_DIR", ""))
+if os.getenv("STATIC_DIR") and STATIC_DIR.is_dir():
+
+    @app.middleware("http")
+    async def add_isolation_headers(request, call_next):
+        response = await call_next(request)
+        if not request.url.path.startswith("/api/"):
+            response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
+            response.headers["Cross-Origin-Embedder-Policy"] = "require-corp"
+            response.headers["Cross-Origin-Resource-Policy"] = "same-origin"
+        return response
+
+    app.mount("/", StaticFiles(directory=STATIC_DIR, html=True), name="web")
 
 
 if __name__ == "__main__":

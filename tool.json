@@ -1,0 +1,10 @@
+{
+  "id": "o20",
+  "slug": "media-to-article",
+  "name": "音视频转图文",
+  "version": "0.8.0-campfire.1",
+  "repo": "campfire-code/media-to-article",
+  "license": "MIT",
+  "delivery": "docker",
+  "upstream": { "repo": "hanshuaikang/AI-Media2Doc", "license": "MIT", "tag": "v0.8.0" }
+}

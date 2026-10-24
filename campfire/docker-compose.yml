@@ -1,0 +1,13 @@
+# 音视频转图文 · 篝火出品（基于 hanshuaikang/AI-Media2Doc）
+# 启动：复制 .env.example 为 .env 并填写，然后 docker compose up -d
+# 浏览器打开 http://127.0.0.1:8080
+services:
+  media-to-article:
+    image: ghcr.io/campfire-code/media-to-article:latest
+    container_name: media-to-article
+    restart: unless-stopped
+    ports:
+      # 默认只允许本机访问。要给局域网 / 外网使用，去掉 127.0.0.1，并建议设置 WEB_ACCESS_PASSWORD 和 HTTPS 反向代理
+      - "127.0.0.1:8080:8080"
+    env_file:
+      - .env

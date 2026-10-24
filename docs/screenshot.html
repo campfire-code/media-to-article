@@ -1,0 +1,12 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>音视频转图文</title><style>
+*{box-sizing:border-box}body{margin:0;width:1040px;height:700px;background:#f4f5f7;font-family:-apple-system,"PingFang SC","Helvetica Neue",sans-serif;color:#1d2129;padding:36px}
+.card{background:#fff;border-radius:20px;height:628px;padding:40px 48px;box-shadow:0 2px 14px rgba(0,0,0,.06);position:relative;display:flex;flex-direction:column}
+.brand{position:absolute;right:32px;top:24px;font-size:13px;color:#8a919c}
+h1{margin:0 0 12px;font-size:36px;font-weight:700}
+.desc{font-size:16px;line-height:1.6;color:#4e5560;margin:0 0 22px}
+h2{font-size:15px;color:#ff6a1a;margin:0 0 10px;letter-spacing:1px}
+ol{margin:0;padding:0;list-style:none;counter-reset:n}
+li{counter-increment:n;display:flex;gap:14px;font-size:16px;line-height:1.55;margin-bottom:12px}
+li:before{content:counter(n);flex:none;width:26px;height:26px;border-radius:50%;background:#fff1e8;color:#ff6a1a;font-weight:700;font-size:14px;text-align:center;line-height:26px;margin-top:1px}
+.fmt{margin-top:auto;background:#f4f5f7;border-radius:12px;padding:14px 18px;font-size:14px;line-height:1.5;color:#4e5560}.fmt b{color:#1d2129}
+</style><body><div class="card"><div class="brand">篝火出品</div><h1>音视频转图文</h1><p class="desc">把录屏、课程、访谈的视频或音频，一键转成知识笔记、文章、思维导图、内容总结，并可导出字幕。网页操作，中文界面。</p><h2>怎么用</h2><ol><li><span>在自己的电脑或服务器上用 Docker 部署，浏览器打开网页</span></li><li><span>在 .env 里填好大模型接口、对象存储和语音识别账号（上游固定使用火山引擎录音文件识别）</span></li><li><span>上传视频或 MP3，选择文档风格，等待转写与生成</span></li><li><span>查看图文结果，导出字幕，或继续向 AI 提问</span></li></ol><div class="fmt"><b>交付形式　</b>Docker 部署（x86 / ARM）；需要火山引擎语音识别账号、兼容 S3 的对象存储和大模型接口，音频会上传到云端</div></div></body></html>
